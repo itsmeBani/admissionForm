@@ -46,11 +46,35 @@ App.post("/CreateStudent", (req, res) => {
         })
 
 
-    App.post("/UpdateStudent/:id", (req, res) => {
-        const UpdateId = req.params.id
+   })
 
 
-        const {
+App.post("/UpdateStudent/:id", (req, res) => {
+    const UpdateId = req.params.id
+
+
+    const {
+        last_name,
+        first_name,
+        middle_name,
+        sex,
+        place_of_birth,
+        month,
+        day,
+        year,
+        permanent_address,
+        lrn,
+        email,
+        MCMG,
+        citizenship,
+        phone_number,
+        Religion,
+        Campus
+    } = req.body;
+
+    Database.query(
+        "UPDATE student_info SET last_name=?, first_name=?, middle_name=?, sex=?, place_of_birth=?, _month=?, _day=?, _year=?, permanent_address=?, lrn=?, email=?, MCMG=?, citizenship=?, phone_number=?, Religion=?, Campus=? WHERE id=?",
+        [
             last_name,
             first_name,
             middle_name,
@@ -66,45 +90,21 @@ App.post("/CreateStudent", (req, res) => {
             citizenship,
             phone_number,
             Religion,
-            Campus
-        } = req.body;
-
-        Database.query(
-            "UPDATE student_info SET last_name=?, first_name=?, middle_name=?, sex=?, place_of_birth=?, _month=?, _day=?, _year=?, permanent_address=?, lrn=?, email=?, MCMG=?, citizenship=?, phone_number=?, Religion=?, Campus=? WHERE id=?",
-            [
-                last_name,
-                first_name,
-                middle_name,
-                sex,
-                place_of_birth,
-                month,
-                day,
-                year,
-                permanent_address,
-                lrn,
-                email,
-                MCMG,
-                citizenship,
-                phone_number,
-                Religion,
-                Campus,
-                UpdateId
-            ],
-            (err, result) => {
-                if (err) {
-                    console.log(err);
-                    res.status(500).json({ message: "Failed to update student information", success: false });
-                } else {
-                    res.status(200).json({ message: "Student information updated successfully", success: true });
-                }
+            Campus,
+            UpdateId
+        ],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+                res.status(500).json({ message: "Failed to update student information", success: false });
+            } else {
+                res.status(200).json({ message: "Student information updated successfully", success: true });
             }
-        );
+        }
+    );
 
 
-    })})
-
-
-
+})
 
 
 
@@ -125,6 +125,6 @@ App.delete("/DeletePost/:id", (req, res) => {
 
 
 App.listen(3003, () => {
-    console.log("fuck yeah, your server is running on port 3004")
+    console.log("fuck yeah, your server is running on port 3004sssssss")
 })
 
