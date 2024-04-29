@@ -6,12 +6,16 @@ const Cors = require('cors')
 App.use(Cors());
 App.use(Express.json())
 
+
+
+
+
 //connection
 const Database = Mysql.createConnection({
-        user: 'root',
-        password: '',
-        host: 'localhost',
-        database: 'reactdatabases'
+        user:'uu4koa2rhixncrla',
+        password: 'IidJpge9j1vJRGwfOVT4',
+        host: 'baxikjjjyfxps6eisyo2-mysql.services.clever-cloud.com',
+        database: 'baxikjjjyfxps6eisyo2'
 
     }
 )
@@ -38,8 +42,8 @@ App.post("/CreateStudent", (req, res) => {
     Database.query( "INSERT INTO student_info (last_name, first_name,middle_name, sex, place_of_birth, _month, _day, _year, permanent_address, lrn, email, MCMG, citizenship, phone_number, Religion,Campus) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)",
         [last_name, first_name, middle_name, sex, place_of_birth, month, day, year, permanent_address, lrn, email, MCMG, citizenship, phone_number, Religion,Campus
         ], (err, result) => {
-        err ? console.log(err) :res.status(200).json({ message: "Student inserted successfully" ,success: true});
-    })
+            err ? console.log(err) :res.status(200).json({ message: "Student inserted successfully" ,success: true});
+        })
 
 
     App.post("/UpdateStudent/:id", (req, res) => {
