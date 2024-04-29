@@ -21,7 +21,7 @@ const Database = Mysql.createConnection({
 )
 
 App.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://bsit3rdyear.org');
+    res.setHeader('Access-Control-Allow-Origin', 'https://bsit3rdyear.org/Worksheets/ws3-0/groupleaderfabro/');
     // You can add other CORS headers as needed
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
