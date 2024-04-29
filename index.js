@@ -20,7 +20,16 @@ const Database = Mysql.createConnection({
     }
 )
 
-
+App.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    res.setHeader('Access-Control-Allow-Origin', '*'); // or use req.headers.origin for dynamic origin
+    res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS, PATCH, DELETE, POST, PUT');
+    res.setHeader(
+        'Access-Control-Allow-Headers',
+        'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+    );
+    next();
+});
 
 
 
@@ -124,7 +133,7 @@ App.delete("/DeletePost/:id", (req, res) => {
 
 
 
-App.listen(3003, () => {
+App.listen(3004, () => {
     console.log("fuck yeah, your server is running on port 3004sssssss")
 })
 
