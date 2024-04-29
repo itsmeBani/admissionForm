@@ -7,7 +7,7 @@ App.use(Cors());
 App.use(Express.json())
 
 App.use(Cors({
-    origin: 'https://bsit3rdyear.org'
+    origin: 'http://localhost:5176'
 }));
 
 
