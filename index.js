@@ -6,9 +6,6 @@ const Cors = require('cors')
 App.use(Cors());
 App.use(Express.json())
 
-App.use(Cors({
-    origin: 'http://localhost:5176'
-}));
 
 
 //connection
