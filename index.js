@@ -124,7 +124,7 @@ App.delete("/DeletePost/:id", (req, res) => {
 
 
 
-App.listen(3004, () => {
+App.listen(3003, () => {
     console.log("fuck yeah, your server is running on port 3004")
 })
 
